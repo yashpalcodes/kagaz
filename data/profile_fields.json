@@ -1,0 +1,68 @@
+{
+  "fields": [
+    { "id": "age", "type": "number", "label": "Age", "unit": "years", "min": 0, "max": 120 },
+    { "id": "gender", "type": "enum", "label": "Gender", "values": ["male", "female", "other"] },
+    {
+      "id": "annual_family_income",
+      "type": "number",
+      "label": "Annual family income",
+      "unit": "INR",
+      "min": 0
+    },
+    {
+      "id": "social_category",
+      "type": "enum",
+      "label": "Social category",
+      "values": ["general", "obc", "sc", "st"]
+    },
+    { "id": "area_type", "type": "enum", "label": "Area", "values": ["rural", "urban"] },
+    {
+      "id": "occupation",
+      "type": "enum",
+      "label": "Occupation",
+      "values": [
+        "farmer",
+        "agricultural_labourer",
+        "student",
+        "self_employed",
+        "salaried",
+        "unemployed",
+        "homemaker",
+        "other"
+      ]
+    },
+    {
+      "id": "marital_status",
+      "type": "enum",
+      "label": "Marital status",
+      "values": ["unmarried", "married", "widowed", "divorced"]
+    },
+    {
+      "id": "education_level",
+      "type": "enum",
+      "label": "Current education level",
+      "values": ["none", "school", "undergraduate", "postgraduate"]
+    },
+    { "id": "owns_agricultural_land", "type": "boolean", "label": "Owns agricultural land" },
+    {
+      "id": "land_holding_acres",
+      "type": "number",
+      "label": "Land holding",
+      "unit": "acres",
+      "min": 0
+    },
+    { "id": "has_ration_card", "type": "boolean", "label": "Has a ration card" },
+    { "id": "is_bpl_household", "type": "boolean", "label": "Belongs to a BPL household" },
+    { "id": "has_bank_account", "type": "boolean", "label": "Has a bank account" },
+    { "id": "owns_pucca_house", "type": "boolean", "label": "Owns a pucca house" },
+    { "id": "has_disability", "type": "boolean", "label": "Has a disability" },
+    {
+      "id": "disability_percent",
+      "type": "number",
+      "label": "Disability percentage",
+      "unit": "%",
+      "min": 0,
+      "max": 100
+    }
+  ]
+}
