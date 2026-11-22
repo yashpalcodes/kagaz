@@ -2,5 +2,15 @@
   "name": "kagaz-backend",
   "version": "0.0.0",
   "private": true,
-  "type": "module"
+  "type": "module",
+  "scripts": {
+    "db:migrate": "tsx src/db/cli.ts"
+  },
+  "dependencies": {
+    "pg": "^8.23.1"
+  },
+  "devDependencies": {
+    "@types/pg": "^8.23.1",
+    "tsx": "^4.23.15"
+  }
 }
