@@ -1,0 +1,32 @@
+# Karnataka variants. Same prerequisite notation as the central file.
+# Entries without source_url and last_verified are not yet checked against the issuing office.
+variants:
+  - type: ration_card
+    issuer: Department of Food, Civil Supplies and Consumer Affairs, Karnataka
+    portal_url: https://ahara.kar.nic.in
+    prerequisites:
+      - [aadhaar]
+
+  - type: residence_certificate
+    issuer: Revenue Department (Tahsildar), Karnataka
+    portal_url: https://nadakacheri.karnataka.gov.in
+    prerequisites:
+      - [aadhaar, ration_card]
+
+  - type: income_certificate
+    issuer: Revenue Department (Tahsildar), Karnataka
+    portal_url: https://nadakacheri.karnataka.gov.in
+    prerequisites:
+      - [aadhaar]
+      - [ration_card, residence_certificate]
+
+  - type: caste_certificate
+    issuer: Revenue Department (Tahsildar), Karnataka
+    portal_url: https://nadakacheri.karnataka.gov.in
+    prerequisites:
+      - [aadhaar]
+      - [school_certificate, ration_card]
+
+  - type: land_record
+    issuer: Revenue Department, Karnataka (Bhoomi)
+    portal_url: https://landrecords.karnataka.gov.in

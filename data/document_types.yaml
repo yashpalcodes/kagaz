@@ -1,0 +1,36 @@
+# Abstract document kinds. How each one is obtained is described by variants,
+# in data/central/document_variants (default) and data/states/<CODE>/document_variants.
+document_types:
+  - id: aadhaar
+    name: Aadhaar card
+    description: 12-digit identity number issued by UIDAI
+  - id: birth_certificate
+    name: Birth certificate
+    description: Proof of date of birth issued by the local registrar
+  - id: school_certificate
+    name: School certificate
+    description: School leaving certificate or marks card
+  - id: voter_id
+    name: Voter ID card
+    description: Election photo identity card (EPIC)
+  - id: bank_account
+    name: Bank account passbook
+    description: Savings account passbook or statement
+  - id: disability_certificate
+    name: Disability certificate
+    description: Disability certificate or UDID card
+  - id: ration_card
+    name: Ration card
+    description: Household card for subsidised food grains
+  - id: residence_certificate
+    name: Residence certificate
+    description: Proof of residence in the state
+  - id: income_certificate
+    name: Income certificate
+    description: Certified annual family income
+  - id: caste_certificate
+    name: Caste certificate
+    description: Certified social category (SC, ST or OBC)
+  - id: land_record
+    name: Land record (RTC)
+    description: Record of rights for agricultural land

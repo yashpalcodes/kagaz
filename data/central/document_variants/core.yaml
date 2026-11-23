@@ -1,0 +1,32 @@
+# Default variants used by every state that does not define its own.
+# Prerequisites: each inner list is a set of alternatives (any one works);
+# every inner list must be satisfied.
+# Entries without source_url and last_verified are not yet checked against the issuing office.
+variants:
+  - type: aadhaar
+    issuer: Unique Identification Authority of India (UIDAI)
+    portal_url: https://uidai.gov.in
+
+  - type: birth_certificate
+    issuer: Local registrar of births and deaths (gram panchayat or municipality)
+    portal_url: https://crsorgi.gov.in
+
+  - type: school_certificate
+    issuer: School last attended or the education board
+
+  - type: voter_id
+    issuer: Election Commission of India
+    portal_url: https://voters.eci.gov.in
+    prerequisites:
+      - [aadhaar, birth_certificate]
+
+  - type: bank_account
+    issuer: Any scheduled bank or post office
+    prerequisites:
+      - [aadhaar, voter_id]
+
+  - type: disability_certificate
+    issuer: Designated medical authority
+    portal_url: https://www.swavlambancard.gov.in
+    prerequisites:
+      - [aadhaar]
