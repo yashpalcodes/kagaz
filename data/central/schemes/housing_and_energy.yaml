@@ -1,0 +1,53 @@
+# Central schemes: housing and clean cooking fuel.
+schemes:
+  - id: central.pmay_g
+    name: Pradhan Mantri Awas Yojana - Gramin
+    level: central
+    category: housing
+    description: >-
+      Assistance to build a pucca house for rural households that are houseless or live in
+      kutcha houses with up to two rooms. Beneficiaries come from SECC 2011 and Awaas+ lists
+      verified by the Gram Sabha, so this result is a screening only. Modelled exclusions:
+      owning a pucca house, paying income tax, a member earning over ₹15,000 per month. Not
+      modelled: motorised three or four-wheelers, mechanised farm equipment, a Kisan Credit
+      Card limit of ₹50,000 or more, government employees, non-agricultural enterprises.
+    benefit_summary: Unit assistance of ₹1.20 lakh in plain areas and ₹1.30 lakh in northeast and hill states
+    nodal_agency: Ministry of Rural Development
+    source_url: https://www.pib.gov.in/PressReleasePage.aspx?PRID=2074713
+    last_verified: "2026-11-28"
+    rule:
+      all:
+        - { field: area_type, op: eq, value: rural }
+        - { field: owns_pucca_house, op: eq, value: false }
+        - { field: pays_income_tax, op: eq, value: false }
+        - { field: highest_earner_monthly_income, op: lte, value: 15000 }
+    documents:
+      - [aadhaar]
+      - [bank_account]
+
+  - id: central.pmuy
+    name: Pradhan Mantri Ujjwala Yojana 2.0
+    level: central
+    category: energy
+    description: >-
+      Deposit-free LPG connection in the name of an adult woman, for households that have no
+      LPG connection. Eligible groups include SC and ST households, PMAY-G beneficiaries, AAY
+      households, SECC-listed households and any poor household through a 14-point declaration.
+      Modelled here as a BPL household or an SC/ST household; the other groups are not modelled.
+    benefit_summary: Deposit-free LPG connection, with the stove and first refill free under Ujjwala 2.0
+    nodal_agency: Ministry of Petroleum and Natural Gas
+    apply_portal: https://pmuy.gov.in
+    source_url: https://pmuy.gov.in/ujjwala2.html
+    last_verified: "2026-11-28"
+    rule:
+      all:
+        - { field: gender, op: eq, value: female }
+        - { field: age, op: gte, value: 18 }
+        - { field: has_lpg_connection, op: eq, value: false }
+        - any:
+            - { field: is_bpl_household, op: eq, value: true }
+            - { field: social_category, op: in, value: [sc, st] }
+    documents:
+      - [aadhaar]
+      - [bank_account]
+      - [ration_card]

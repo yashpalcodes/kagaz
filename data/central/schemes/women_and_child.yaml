@@ -1,0 +1,42 @@
+# Central schemes: women and children.
+schemes:
+  - id: central.pmmvy
+    name: Pradhan Mantri Matru Vandana Yojana
+    level: central
+    category: women_and_child
+    description: >-
+      Cash support for pregnant women and breastfeeding mothers for the first living child of
+      the family, paid in instalments against maternal and child health conditions. Women in
+      regular employment with the Central or State Government or a PSU are excluded. Benefits
+      for later children are not modelled.
+    benefit_summary: ₹5,000 for the first living child, in two instalments
+    nodal_agency: Ministry of Women and Child Development
+    apply_portal: https://pmmvy.wcd.gov.in/
+    source_url: https://eparlib.nic.in/bitstream/123456789/959057/1/AU3033.pdf
+    last_verified: "2026-11-28"
+    rule:
+      all:
+        - { field: gender, op: eq, value: female }
+        - { field: is_pregnant_or_lactating, op: eq, value: true }
+        - { field: is_first_living_child, op: eq, value: true }
+        - { field: is_government_employee, op: eq, value: false }
+    documents:
+      - [aadhaar]
+      - [bank_account]
+
+  - id: central.sukanya_samriddhi
+    name: Sukanya Samriddhi Yojana
+    level: central
+    category: savings
+    description: >-
+      Savings account for a girl child, opened by a parent or guardian before she turns 10, at a
+      post office or an authorised bank. Normally one account per girl and two per family. The
+      interest rate is set by the Government every quarter.
+    benefit_summary: Government-set interest rate and tax benefits; deposits from ₹250 up to ₹1.5 lakh a year
+    nodal_agency: Ministry of Finance (accounts at India Post and authorised banks)
+    source_url: https://static.pib.gov.in/WriteReadData/specificdocs/documents/2026/jan/doc2026121762801.pdf
+    last_verified: "2026-11-28"
+    rule: { field: has_girl_child_under_10, op: eq, value: true }
+    documents:
+      - [birth_certificate]
+      - [aadhaar]

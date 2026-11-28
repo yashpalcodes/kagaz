@@ -1,0 +1,25 @@
+# Central schemes: agriculture.
+# Rules were checked against source_url on last_verified. Document lists are a working model.
+schemes:
+  - id: central.pm_kisan
+    name: PM-KISAN Samman Nidhi
+    level: central
+    category: agriculture
+    description: >-
+      Income support for landholding farmer families. Land ownership is checked against land
+      records, and families that acquired land after 1 February 2019 may be flagged. e-KYC is
+      mandatory. Other exclusions (institutional landholders, professionals, higher-income
+      pensioners) are applied at registration and are not modelled here.
+    benefit_summary: ₹6,000 per year in three equal instalments to the bank account
+    nodal_agency: Ministry of Agriculture and Farmers Welfare
+    apply_portal: https://pmkisan.gov.in
+    source_url: https://pib.gov.in/PressReleasePage.aspx?PRID=1575610
+    last_verified: "2026-11-28"
+    rule:
+      all:
+        - { field: owns_agricultural_land, op: eq, value: true }
+        - { field: pays_income_tax, op: eq, value: false }
+    documents:
+      - [aadhaar]
+      - [bank_account]
+      - [land_record]

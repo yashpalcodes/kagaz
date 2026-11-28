@@ -1,0 +1,22 @@
+# Central schemes: banking access.
+schemes:
+  - id: central.pmjdy
+    name: Pradhan Mantri Jan Dhan Yojana
+    level: central
+    category: banking
+    description: >-
+      Basic savings account with no minimum balance, a RuPay debit card with accident insurance
+      and an overdraft facility, for people without a bank account. Business-correspondent
+      outlets need age 10 or above; bank branches have no age limit. The rule uses age 10 as the
+      common minimum.
+    benefit_summary: Zero-balance savings account with RuPay card and accident insurance cover
+    nodal_agency: Department of Financial Services
+    apply_portal: https://www.pmjdy.gov.in/scheme
+    source_url: https://sbi.bank.in/en/web/faq-s/faq-pradhan-mantri-jan-dhan-yojana-pmjdy
+    last_verified: "2026-11-28"
+    rule:
+      all:
+        - { field: age, op: gte, value: 10 }
+        - { field: has_bank_account, op: eq, value: false }
+    documents:
+      - [aadhaar, voter_id]

@@ -50,3 +50,35 @@ details against the issuing office or its official portal.
 1. Create `data/states/<CODE>/state.yaml`.
 2. Add variants only for documents that differ from the central default.
 3. Run `npm run data:validate`.
+
+## Schemes
+
+Scheme files live in `data/central/schemes/*.yaml` and `data/states/<CODE>/schemes/*.yaml`.
+
+```yaml
+schemes:
+  - id: central.pm_kisan # central.<name> or <STATE>.<name>
+    name: PM-KISAN Samman Nidhi
+    level: central # central | state
+    category: agriculture
+    description: Plain-language summary, including what the rule does not cover.
+    benefit_summary: ₹6,000 per year
+    nodal_agency: Ministry of Agriculture and Farmers Welfare
+    apply_portal: https://pmkisan.gov.in
+    source_url: https://... # official page the rule was checked against
+    last_verified: "2026-11-28" # required
+    rule: # see docs/RULE_DSL.md
+      all:
+        - { field: owns_agricultural_land, op: eq, value: true }
+    documents: # outer = AND, inner = OR
+      - [aadhaar]
+      - [bank_account]
+```
+
+- `source_url` and `last_verified` are required for every scheme, because eligibility rules are
+  the part users act on.
+- A state scheme sets `state`, lives in its own state folder, and can use `extends` and
+  `overrides` instead of `rule` (see `docs/RULE_DSL.md`).
+- Rules may only use fields from `data/profile_fields.json`.
+- Exclusions that cannot be expressed with profile fields are described in `description` and
+  left out of the rule. The UI treats a match as "likely eligible, verify at the office".

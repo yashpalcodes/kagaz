@@ -1,0 +1,18 @@
+# Central schemes: health.
+schemes:
+  - id: central.pmjay_vay_vandana
+    name: Ayushman Vay Vandana (PM-JAY for senior citizens)
+    level: central
+    category: health
+    description: >-
+      Health cover for every senior citizen aged 70 and above, whatever the income. Enrolment is
+      application based and needs Aadhaar-based e-KYC. Families already covered under PM-JAY get
+      a separate top-up for the senior member.
+    benefit_summary: ₹5 lakh per year cashless hospitalisation at empanelled hospitals
+    nodal_agency: National Health Authority
+    apply_portal: https://nha.gov.in/PM-JAY
+    source_url: https://mohfw.gov.in/press-info/7914
+    last_verified: "2026-11-28"
+    rule: { field: age, op: gte, value: 70 }
+    documents:
+      - [aadhaar]
