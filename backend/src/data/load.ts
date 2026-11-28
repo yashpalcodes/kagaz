@@ -6,11 +6,11 @@ import type { DataPack, DocumentTypeDef, DocumentVariantDef, StateEntry, StateMe
 
 export const DATA_DIR = path.resolve(path.dirname(fileURLToPath(import.meta.url)), "../../../data");
 
-async function readYaml<T>(file: string): Promise<T | null> {
+export async function readYaml<T>(file: string): Promise<T | null> {
   return (parse(await readFile(file, "utf8")) as T | null) ?? null;
 }
 
-async function listYaml(dir: string): Promise<string[]> {
+export async function listYaml(dir: string): Promise<string[]> {
   try {
     return (await readdir(dir))
       .filter((f) => f.endsWith(".yaml"))

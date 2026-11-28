@@ -1,7 +1,19 @@
 {
   "fields": [
-    { "id": "age", "type": "number", "label": "Age", "unit": "years", "min": 0, "max": 120 },
-    { "id": "gender", "type": "enum", "label": "Gender", "values": ["male", "female", "other"] },
+    {
+      "id": "age",
+      "type": "number",
+      "label": "Age",
+      "unit": "years",
+      "min": 0,
+      "max": 120
+    },
+    {
+      "id": "gender",
+      "type": "enum",
+      "label": "Gender",
+      "values": ["male", "female", "other"]
+    },
     {
       "id": "annual_family_income",
       "type": "number",
@@ -15,7 +27,12 @@
       "label": "Social category",
       "values": ["general", "obc", "sc", "st"]
     },
-    { "id": "area_type", "type": "enum", "label": "Area", "values": ["rural", "urban"] },
+    {
+      "id": "area_type",
+      "type": "enum",
+      "label": "Area",
+      "values": ["rural", "urban"]
+    },
     {
       "id": "occupation",
       "type": "enum",
@@ -43,7 +60,11 @@
       "label": "Current education level",
       "values": ["none", "school", "undergraduate", "postgraduate"]
     },
-    { "id": "owns_agricultural_land", "type": "boolean", "label": "Owns agricultural land" },
+    {
+      "id": "owns_agricultural_land",
+      "type": "boolean",
+      "label": "Owns agricultural land"
+    },
     {
       "id": "land_holding_acres",
       "type": "number",
@@ -51,11 +72,31 @@
       "unit": "acres",
       "min": 0
     },
-    { "id": "has_ration_card", "type": "boolean", "label": "Has a ration card" },
-    { "id": "is_bpl_household", "type": "boolean", "label": "Belongs to a BPL household" },
-    { "id": "has_bank_account", "type": "boolean", "label": "Has a bank account" },
-    { "id": "owns_pucca_house", "type": "boolean", "label": "Owns a pucca house" },
-    { "id": "has_disability", "type": "boolean", "label": "Has a disability" },
+    {
+      "id": "has_ration_card",
+      "type": "boolean",
+      "label": "Has a ration card"
+    },
+    {
+      "id": "is_bpl_household",
+      "type": "boolean",
+      "label": "Belongs to a BPL household"
+    },
+    {
+      "id": "has_bank_account",
+      "type": "boolean",
+      "label": "Has a bank account"
+    },
+    {
+      "id": "owns_pucca_house",
+      "type": "boolean",
+      "label": "Owns a pucca house"
+    },
+    {
+      "id": "has_disability",
+      "type": "boolean",
+      "label": "Has a disability"
+    },
     {
       "id": "disability_percent",
       "type": "number",
@@ -63,6 +104,43 @@
       "unit": "%",
       "min": 0,
       "max": 100
+    },
+    {
+      "id": "pays_income_tax",
+      "type": "boolean",
+      "label": "Pays income tax"
+    },
+    {
+      "id": "has_lpg_connection",
+      "type": "boolean",
+      "label": "Household already has an LPG connection"
+    },
+    {
+      "id": "has_girl_child_under_10",
+      "type": "boolean",
+      "label": "Has a girl child below 10 years"
+    },
+    {
+      "id": "is_pregnant_or_lactating",
+      "type": "boolean",
+      "label": "Pregnant or breastfeeding"
+    },
+    {
+      "id": "is_first_living_child",
+      "type": "boolean",
+      "label": "Expecting or nursing the first living child of the family"
+    },
+    {
+      "id": "is_government_employee",
+      "type": "boolean",
+      "label": "In regular employment with Central or State Government or a PSU"
+    },
+    {
+      "id": "highest_earner_monthly_income",
+      "type": "number",
+      "label": "Monthly income of the highest-earning household member",
+      "unit": "INR",
+      "min": 0
     }
   ]
 }
