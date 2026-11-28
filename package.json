@@ -26,7 +26,8 @@
     "db:up": "docker compose up -d --wait",
     "db:down": "docker compose down",
     "db:migrate": "npm run db:migrate -w backend",
-    "data:validate": "npm run data:validate -w backend"
+    "data:validate": "npm run data:validate -w backend",
+    "db:seed": "npm run db:seed -w backend"
   },
   "devDependencies": {
     "@eslint/js": "^10.0.1",

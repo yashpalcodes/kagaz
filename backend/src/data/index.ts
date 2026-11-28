@@ -4,3 +4,5 @@ export { validateDataPack } from "./validate";
 export * from "./schemeTypes";
 export { loadSchemes } from "./loadSchemes";
 export { validateSchemeData } from "./validateSchemeData";
+export { validateDocumentCoverage } from "./validateCoverage";
+export { loadAndValidate } from "./loadAll";

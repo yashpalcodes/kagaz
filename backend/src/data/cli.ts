@@ -1,15 +1,6 @@
-import { loadProfileFields } from "../rules/fields";
-import { loadDataPack } from "./load";
-import { loadSchemes } from "./loadSchemes";
-import { validateDataPack } from "./validate";
-import { validateSchemeData } from "./validateSchemeData";
+import { loadAndValidate } from "./loadAll";
 
-const pack = await loadDataPack();
-const fields = await loadProfileFields();
-const schemes = await loadSchemes();
-const typeIds = new Set(pack.types.map((t) => t.id));
-
-const errors = [...validateDataPack(pack), ...validateSchemeData(schemes, typeIds, fields)];
+const { pack, schemes, errors } = await loadAndValidate();
 
 if (errors.length > 0) {
   console.error(

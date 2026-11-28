@@ -5,7 +5,8 @@
   "type": "module",
   "scripts": {
     "db:migrate": "tsx src/db/cli.ts",
-    "data:validate": "tsx src/data/cli.ts"
+    "data:validate": "tsx src/data/cli.ts",
+    "db:seed": "tsx src/db/seedCli.ts"
   },
   "dependencies": {
     "ajv": "^8.20.0",
