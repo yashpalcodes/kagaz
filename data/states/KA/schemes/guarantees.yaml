@@ -1,0 +1,67 @@
+# Karnataka state schemes (guarantee schemes).
+# Rules were checked against source_url on last_verified. Document lists are a working model.
+# Shakti is sourced from a news report of the government order; replace with the order itself.
+schemes:
+  - id: KA.gruha_lakshmi
+    name: Gruha Lakshmi
+    level: state
+    state: KA
+    category: women_and_child
+    description: >-
+      Monthly cash support to the woman head of a family registered on a BPL, APL or Antyodaya
+      ration card. Only one woman per family receives it. Families where the woman or her husband
+      pays income tax or files GST returns are excluded. Beneficiary lists are re-verified from
+      time to time.
+    benefit_summary: ₹2,000 per month to the woman head of the family
+    nodal_agency: Department of Women and Child Development, Karnataka
+    apply_portal: https://sevasindhugs.karnataka.gov.in
+    source_url: https://www.deccanherald.com/india/karnataka/tax-paying-women-out-of-gruha-lakshmi-karnataka-govt-1225467.html
+    last_verified: "2026-11-28"
+    rule:
+      all:
+        - { field: gender, op: eq, value: female }
+        - { field: has_ration_card, op: eq, value: true }
+        - { field: is_head_of_family_on_ration_card, op: eq, value: true }
+        - { field: family_pays_income_tax_or_gst, op: eq, value: false }
+    documents:
+      - [aadhaar]
+      - [ration_card]
+      - [bank_account]
+
+  - id: KA.gruha_jyothi
+    name: Gruha Jyothi
+    level: state
+    state: KA
+    category: energy
+    description: >-
+      Free electricity for households whose average monthly use is below 200 units. The free
+      quantity is the household's 12-month average plus 10 percent, capped at 200 units. A month
+      above the free quantity is billed in full. Tenants are eligible. Registration on Seva Sindhu
+      is required.
+    benefit_summary: Zero electricity bill up to the free units (maximum 200 units a month)
+    nodal_agency: Energy Department, Karnataka
+    apply_portal: https://sevasindhugs.karnataka.gov.in
+    source_url: https://www.deccanherald.com/india/karnataka/registration-on-seva-sindhu-must-for-gruha-jyothi-1225194.html
+    last_verified: "2026-11-28"
+    rule: { field: average_monthly_electricity_units, op: lt, value: 200 }
+    documents:
+      - [aadhaar]
+
+  - id: KA.shakti
+    name: Shakti
+    level: state
+    state: KA
+    category: transport
+    description: >-
+      Free travel for women domiciled in Karnataka on non-premium state-run buses within the
+      state. Luxury, AC and sleeper services and inter-state routes are not covered. Transgender
+      persons are also covered but the profile does not model them yet. A smart card is being
+      introduced to replace ID checks on the bus.
+    benefit_summary: Free travel on city, ordinary and express buses of the four state transport corporations
+    nodal_agency: Transport Department, Karnataka
+    apply_portal: https://sevasindhugs.karnataka.gov.in
+    source_url: https://thehansindia.com/karnataka/shakti-smart-cards-where-to-obtain-them-for-free-bus-travel-for-women-in-karnataka-conditions-apply-801648
+    last_verified: "2026-11-28"
+    rule: { field: gender, op: eq, value: female }
+    documents:
+      - [aadhaar, voter_id]

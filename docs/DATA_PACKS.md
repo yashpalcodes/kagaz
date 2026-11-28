@@ -82,3 +82,23 @@ schemes:
 - Rules may only use fields from `data/profile_fields.json`.
 - Exclusions that cannot be expressed with profile fields are described in `description` and
   left out of the rule. The UI treats a match as "likely eligible, verify at the office".
+
+## State schemes and overlays
+
+A state scheme lives in `data/states/<CODE>/schemes/*.yaml`, sets `level: state` and
+`state: <CODE>`, and uses the id prefix `<CODE>.`.
+
+- A new state benefit has its own `rule`.
+- A state version of a central scheme sets `extends` and `overrides` and has no `rule`
+  (semantics in `docs/RULE_DSL.md`).
+- If a state scheme with `extends` has no `documents`, it inherits the parent's list.
+  When the state rule needs more paperwork (for example an income certificate for an income
+  ceiling), it lists its own `documents`.
+
+## Coverage rule
+
+For every state pack, each document group needed by a central scheme or by that state's own
+schemes must have at least one document type that resolves to a variant (central default or
+state variant). A new state must therefore define variants such as `ration_card` and
+`land_record` before CI passes. This is what keeps plans from pointing at documents that do not
+exist in that state.

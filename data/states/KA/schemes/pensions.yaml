@@ -1,0 +1,27 @@
+# Karnataka pensions.
+# The source is a news report of the Revenue Department order raising the income ceiling.
+# Replace source_url with the order itself when it is available.
+schemes:
+  - id: KA.ignoaps
+    name: Old Age Pension (IGNOAPS), Karnataka
+    level: state
+    state: KA
+    category: pension
+    description: >-
+      Karnataka runs the central old-age pension through the Revenue Department and applies an
+      annual family income ceiling of ₹1.20 lakh (raised from ₹32,000 in August 2026) on top of the
+      central conditions. Continuation of the pension depends on field verification. The state
+      adds its own top-up, and the amount varies by source, so confirm it at the taluk office.
+    nodal_agency: Revenue Department, Karnataka (Social Security and Pensions)
+    apply_portal: https://sevasindhu.karnataka.gov.in
+    source_url: https://www.business-standard.com/finance/personal-finance/karnataka-raises-pension-income-limit-to-rs-1-2-lakh-who-benefits-126082000619_1.html
+    last_verified: "2026-11-28"
+    extends: central.ignoaps
+    overrides:
+      rule_mode: and
+      rule: { field: annual_family_income, op: lte, value: 120000 }
+    documents:
+      - [aadhaar]
+      - [bank_account]
+      - [ration_card]
+      - [income_certificate]

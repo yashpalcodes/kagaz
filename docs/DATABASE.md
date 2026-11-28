@@ -22,3 +22,13 @@ npm run db:up        # start Postgres in Docker on port 5433
 npm run db:migrate   # apply pending migrations
 npm run db:down      # stop the container (data is kept in a volume)
 ```
+
+## Seeding
+
+```bash
+npm run db:seed      # validates data/, applies migrations, replaces the data tables
+```
+
+The YAML and JSON files in `data/` are the source of truth. Seeding clears the data tables and
+reloads them in one transaction, so it can be repeated safely. It refuses to run if validation
+fails. State schemes without their own `documents` get their parent's document groups copied.

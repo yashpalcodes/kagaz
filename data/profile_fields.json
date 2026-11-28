@@ -141,6 +141,23 @@
       "label": "Monthly income of the highest-earning household member",
       "unit": "INR",
       "min": 0
+    },
+    {
+      "id": "is_head_of_family_on_ration_card",
+      "type": "boolean",
+      "label": "Registered as the head of the family on the ration card"
+    },
+    {
+      "id": "family_pays_income_tax_or_gst",
+      "type": "boolean",
+      "label": "Applicant or spouse pays income tax or files GST returns"
+    },
+    {
+      "id": "average_monthly_electricity_units",
+      "type": "number",
+      "label": "Average monthly household electricity use",
+      "unit": "units",
+      "min": 0
     }
   ]
 }
